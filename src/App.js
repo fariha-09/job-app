@@ -19,7 +19,7 @@ import Mainsection from './components/Dashboard/Mainsection.jsx';
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
 <Route path='/' element={<Homepage/>}/>
 <Route path='/loginpage' element={<Signin/>}/>
 <Route path='/signuppage' element={<SignupPage/>}/>
@@ -27,12 +27,12 @@ function App() {
 <Route path='/jobslist' element={<JobsList/>}/>
 <Route path='/jobdetails/:_id' element={<Jobdetails/>}/>
 <Route path='/applyjob' element={<ApplyJob/>}/>
-      </Routes> */}
+      </Routes>
       {/* <ComDashboard/> */}
 
 {/* <Sidebar/> */}
 {/* <Dbheader/> */}
-<Mainsection/>
+{/* <Mainsection/> */}
       {/* <ApplyJob/> 
        <Jobdetails/>
 
