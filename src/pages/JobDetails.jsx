@@ -10,7 +10,7 @@ export default function JobDetails() {
 
   useEffect(() => {
     const fetchJob = async () => {
-      fetch( `http://localhost:3001/jobs/${_id}`)
+      fetch( `job-portal-production-1bac.up.railway.app/jobs/${_id}`)
       .then(res=> res.json())
       .then(data => {
         console.log("Data: ", data.data);

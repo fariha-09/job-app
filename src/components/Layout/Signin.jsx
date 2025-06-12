@@ -22,7 +22,7 @@ export default function Signin() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch("http://localhost:3001/api/login", {
+            const res = await fetch("job-portal-production-1bac.up.railway.app/api/login", {
                 method: 'POST',
                 credentials: "include",
                 headers: { 'Content-type': 'application/json; charset=UTF-8' },

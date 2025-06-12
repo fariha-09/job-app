@@ -46,7 +46,7 @@ export default function LoginPage() {
       return;
     }
     try {
-      const res =await fetch("http://localhost:3001/api/signup", {
+      const res =await fetch("job-portal-production-1bac.up.railway.app/api/signup", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

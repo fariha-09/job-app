@@ -1,7 +1,7 @@
 const GetAllJobs = async () => {
   try {
     const response = await fetch(
-      "http://localhost:3001/jobs",
+      "job-portal-production-1bac.up.railway.app",
       {
         method: "Get",
       }
