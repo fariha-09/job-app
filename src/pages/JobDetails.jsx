@@ -16,13 +16,13 @@ export default function JobDetails() {
          console.log("single data is ",data)
         console.log("Data:", data.data);
         setJob(data)
-      },[_id])
+      })
       // const jobs = await GetAllJobs();
       // const selectedJob = jobs.find((ele) => ele._id == _id);
       // setJob(selectedJob);
     };
     fetchJob();
-  }, []);
+  }, [_id]);
   if (!job) return <p className="p-10">Loading...</p>;
   return (
     <>
