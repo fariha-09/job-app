@@ -1,9 +1,9 @@
 const GetAllJobs = async () => {
   try {
     const response = await fetch(
-      "job-portal-production-1bac.up.railway.app",
+      "https://job-portal-production-1bac.up.railway.app/jobs",
       {
-        method: "Get",
+        method: "GET", // Use all uppercase GET
       }
     );
     const jobs = await response.json();
@@ -12,7 +12,5 @@ const GetAllJobs = async () => {
     console.error("Error fetching remote OK job", error);
   }
 };
-
-// console.log(jobs);
 
 export default GetAllJobs;
