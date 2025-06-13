@@ -13,9 +13,10 @@ export default function JobDetails() {
       fetch( `https://job-portal-production-1bac.up.railway.app/jobs/${_id}`)
       .then(res=> res.json())
       .then(data => {
-        console.log("Data: ", data.data);
+         console.log("single data is ",data)
+        console.log("Data:", data.data);
         setJob(data.data)
-      })
+      },[_id])
       // const jobs = await GetAllJobs();
       // const selectedJob = jobs.find((ele) => ele._id == _id);
       // setJob(selectedJob);
