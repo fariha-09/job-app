@@ -22,7 +22,7 @@ export default function ApplyJob() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://job-portal-production.up.railway.app/form/formsubmit", {
+      const res = await fetch("https://job-portal-production-1bac.up.railway.app/form/formsubmit", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",

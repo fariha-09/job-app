@@ -39,7 +39,7 @@ export default function JobsList() {
         <div className="flex flex-col gap-4">
           {Array.isArray(filteredJobs) && filteredJobs.map((job) => (
             <div
-              key={job.id || job.jobTitle}
+              key={job._id || job.jobTitle}
               className="bg-white rounded-xl shadow-sm border p-4 md:p-5 flex flex-col md:flex-row justify-between items-start md:items-center"
             >
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4 w-full">

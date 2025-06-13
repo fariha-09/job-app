@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import { Route,Routes,Router } from 'react-router-dom';
+import { Route,Routes} from 'react-router-dom';
 import './App.css';
 import Header from './components/Layout/Header';
 import HeroSection from './components/Layout/HeroSection';
