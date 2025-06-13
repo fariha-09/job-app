@@ -64,7 +64,7 @@ export default function JobsList() {
 
                   <div className="text-sm text-gray-500 mt-1 flex flex-wrap gap-1">
                     <span>{job.jobType || "Remote"} | </span>
-                    <span>{job.jobDescription || "N/A"} | </span>
+                   
                     <span>{job.createdAt}</span>
                   </div>
 
