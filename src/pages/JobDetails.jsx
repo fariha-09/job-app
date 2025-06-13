@@ -14,7 +14,7 @@ export default function JobDetails() {
       .then(res=> res.json())
       .then(data => {
         console.log("Data: ", data.data);
-        setJob(data)
+        setJob(data.data)
       })
       // const jobs = await GetAllJobs();
       // const selectedJob = jobs.find((ele) => ele._id == _id);
