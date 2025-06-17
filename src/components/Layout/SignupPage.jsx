@@ -42,7 +42,7 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
       e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.");
+      alert("Passwords do not match with confirm password");
       return;
     }
     try {
@@ -70,7 +70,6 @@ export default function LoginPage() {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
-      role:"users"
     }));
   };
   const handleContinue = () => {
