@@ -9,18 +9,18 @@ export default function HeroSection() {
     <section style={{ backgroundColor: "#9B4DFF" }} className="py-16">
       {/* Header Section */}
       <div className="pb-3 max-w-3xl mx-auto px-6">
-        <div className="max-w-3xl px-6 text-center sm:text-left">
-          <h2 className="text-white text-4xl font-bold mb-4">
+        <div className="max-w-3xl px-6 text-center just sm:text-left ">
+          <h2 className="text-white text-4xl font-bold mb-4 flex justify-center">
             Discover Your Dream Job
           </h2>
-          <p className="text-white text-lg">
+          <p className="text-white text-lg flex justify-center">
             Find opportunities that match your skills and aspirations
           </p>
         </div>
       </div>
 
       {/* Search Section */}
-      <div className="bg-white/15 backdrop-blur-md shadow-lg rounded-lg p-6 mt-8 max-w-7xl mx-auto">
+      <div className="bg-white/15 backdrop-blur-md shadow-lg rounded-lg p-6 mt-8 max-w-7xl mx-auto flex justify-center">
         <div className="flex flex-wrap gap-4 justify-center sm:justify-start">
           {/* Job Title Input */}
           <div className="relative w-full sm:w-64">

@@ -46,7 +46,7 @@ export default function LoginPage() {
       return;
     }
     try {
-      const res =await fetch("https://job-portal-production-1bac.up.railway.app/api/signup", {
+      const res =await fetch("https://job-portal-production-1bac.up.railway.app/api/user/signup", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -58,6 +58,17 @@ export default function LoginPage() {
 
       if (res.ok) {
         alert(data.message);
+         setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phoneNumber: "",
+          password: "",
+          confirmPassword: "",
+          currentJobTitle: "",
+          location: "",
+          keySkills: "",
+        });
       } else {
         alert("signup failed");
       }

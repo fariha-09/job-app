@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import GetAllJobs from "./GetAllJobs";
 import { Link } from "react-router-dom";
 import { Heart, Send } from "lucide-react";
+import Header from "../components/Layout/Header";
+import Footer from "../components/Layout/Footer";
 
 export default function JobsList() {
   const [jobs, setJobs] = useState([]);
@@ -19,6 +21,7 @@ export default function JobsList() {
 
   return (
     <>
+  
       <div className="mt-8 mb-8 px-4 md:px-10">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-6">
           <h1 className="text-2xl font-extrabold text-center md:text-left mb-4 md:mb-0">Available Jobs</h1>

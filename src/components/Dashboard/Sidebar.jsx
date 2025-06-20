@@ -16,10 +16,13 @@ export default function Sidebar() {
    <h1 className="text-blue-700 font-bold text-xl">ProHire</h1>
          </div>
           <div className='border-b border-gray-300 w-full'></div>
-          <div className='flex items-center gap-2 mb-4 pt-4 px-5'>
+         
+        <div className='flex items-center gap-2 mb-4 pt-4 px-5'>
             <VscGraph className='text-gray-700 font-medium'/>
   <h1  className='text-gray-700 font-medium'>Dashboard</h1>
           </div>
+    
+          
 <div className='flex items-center gap-2 mb-4 py-2 px-5 bg-blue-100 rounded-lg border-r-3 border-blue-600 mx-1'>
 <FaPlus className='text-blue-700'/>
 <p className='text-blue-700 font-medium'>Post Job</p>

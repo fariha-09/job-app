@@ -14,6 +14,9 @@ import Sidebar from './components/Dashboard/Sidebar.jsx';
 import Dbheader from './components/Dashboard/Dbheader.jsx';
 import ComDashboard from './components/Dashboard/ComDashboard.jsx';
 import Mainsection from './components/Dashboard/Mainsection.jsx';
+import ManageJobs from './components/Dashboard/ManageJobs.jsx';
+import WhatsAppChat from './pages/EmployerRegistration.jsx';
+import MinimalDashboard from './components/Dashboard/MinimalDashboard.jsx';
 
 function App() {
   return (
@@ -27,11 +30,18 @@ function App() {
 <Route path='/jobdetails/:_id' element={<Jobdetails/>}/>
 <Route path='/applyjob' element={<ApplyJob/>}/>
       </Routes>
+
+{/* <MinimalDashboard/> */}
+{/* <WhatsAppChat/> */}
+{/* <ManageJobs/> */}
       {/* <ComDashboard/> */}
 
 {/* <Sidebar/> */}
 {/* <Dbheader/> */}
 {/* <Mainsection/> */}
+
+
+
       {/* <ApplyJob/> 
        <Jobdetails/>
 
