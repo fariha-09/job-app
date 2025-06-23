@@ -31,8 +31,7 @@ export default function Signin() {
             const data = await res.json();
             // console.log("data of msg",data)
            if (res.ok) {
-
-  alert("user login successfully");
+alert(data.message);
   console.log("msg is",data.message);
   navigate("/");
 } else if (res.status === 401 || res.status === 404) {
