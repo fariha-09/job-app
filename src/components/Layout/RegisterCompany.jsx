@@ -52,7 +52,7 @@ export default function RegisterCompany() {
       const data = await res.json();
       if (res.ok) {
         alert(data.message);
-        navigate('/loginpage'); // Redirect after successful signup
+        navigate('/loginpage'); 
       } else {
         alert(data.message || "Registration failed");
       }
@@ -215,7 +215,7 @@ export default function RegisterCompany() {
               </div>
             </div>
 
-            <Link to="" className="bg-[#7F4DFF] w-full text-white text-center py-2 rounded-xl mb-5 block mt-5">Register Company</Link>
+            <button type="submit" className="bg-[#7F4DFF] w-full text-white text-center py-2 rounded-xl mb-5 block mt-5">Register Company</button>
 
             <div className="flex justify-center p-4">
               <p className="text-gray-700 font-medium">Already have an account?</p>
