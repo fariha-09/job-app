@@ -5,6 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 import { LuFileText } from "react-icons/lu";
 import { TbUsers } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
@@ -32,7 +33,7 @@ export default function Sidebar() {
 
  <div className='flex items-center gap-2 mb-4 px-5'>
             <LuFileText className='text-gray-700 font-medium'/>
-  <h1  className='text-gray-700 font-medium'>Manage Jobs</h1>
+  <Link to='/managejobs' className='text-gray-700 font-medium'>Manage Jobs</Link>
           </div>
 
 

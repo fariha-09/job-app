@@ -29,6 +29,8 @@ function App() {
 <Route path='/jobslist' element={<JobsList/>}/>
 <Route path='/jobdetails/:_id' element={<Jobdetails/>}/>
 <Route path='/applyjob' element={<ApplyJob/>}/>
+<Route path='/managejobs' element={<ManageJobs/>}/>
+<Route path='/dashboard' element={<ComDashboard/>}/>
       </Routes>
 
 {/* <MinimalDashboard/> */}
