@@ -4,18 +4,68 @@ import { LuBuilding2, LuPhone } from "react-icons/lu";
 import { HiOutlineMail } from "react-icons/hi";
 import { MdOutlinePerson, MdOutlineFileUpload } from "react-icons/md";
 import { IoLockClosedOutline } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import Footer from './Footer';
 
 export default function RegisterCompany() {
-  const [industry, setIndustry] = useState("");
+ const [industry, setIndustry] = useState("");
   const [companySize, setCompanySize] = useState("");
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phoneNumber: "",
+    password: "",
+    confirmPassword: "",
+    jobTitle: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    try {
+      const res = await fetch("https://job-portal-production-1bac.up.railway.app/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...formData,
+          role: "company",
+          industry: industry,
+        })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert(data.message);
+        navigate('/loginpage'); // Redirect after successful signup
+      } else {
+        alert(data.message || "Registration failed");
+      }
+    } catch (error) {
+      alert('Network error: ' + error.message);
+    }
+  };
 
   return (
     <>
       <Header />
       <section className="bg-blue-300/10 flex justify-center items-center py-10">
-        <div className="w-[90%] max-w-6xl flex flex-col items-center text-center">
+        <form  onSubmit={handleSubmit} className="w-[90%] max-w-6xl flex flex-col items-center text-center">
           <div className="w-full max-w-lg flex flex-col items-center p-6 text-center">
             <h2 className="text-xl font-extrabold mb-1">Register Your Company</h2>
             <p className="text-gray-600 mb-1">Start hiring top talent today</p>
@@ -30,7 +80,7 @@ export default function RegisterCompany() {
 
             <div className="flex flex-col items-start relative mb-4">
               <label className="mb-2 text-gray-700 font-medium">Company Name <span className="text-red-500 font-semibold">*</span></label>
-              <input type="text" placeholder="Enter your company name" className="p-2 pl-4 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <input type="text" name='fullName' onChange={handleChange} value={formData.fullName} placeholder="Enter your company name" className="p-2 pl-4 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             <div className="flex flex-col items-start relative mb-4">
@@ -74,7 +124,7 @@ export default function RegisterCompany() {
               <div className="flex flex-col items-start w-full">
                 <label className="mb-2 text-gray-700 font-medium">Company Size <span className="text-red-500 font-semibold">*</span></label>
                 <select className="p-2 border bg-white border-gray-300 text-gray-700 font-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-                  value={companySize}
+                   value={companySize}
                   onChange={(e) => setCompanySize(e.target.value)}
                 >
                   <option value="" disabled>Select size</option>
@@ -104,19 +154,19 @@ export default function RegisterCompany() {
             <div className="flex flex-col lg:flex-row gap-4 mb-4 w-full">
               <div className="flex flex-col items-start w-full">
                 <label className="mb-2 text-gray-700 font-medium">Full Name <span className="text-red-500 font-semibold">*</span></label>
-                <input type="text" placeholder="Your full name" className="p-2 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" placeholder="Your full name" name="fullName" value={formData.fullName} onChange={handleChange} className="p-2 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
 
               <div className="flex flex-col items-start w-full">
                 <label className="mb-2 text-gray-700 font-medium">Job Title <span className="text-red-500 font-semibold">*</span></label>
-                <input type="text" placeholder="HR Manager, CEO, etc." className="p-2 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="HR Manager, CEO, etc." className="p-2 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
             </div>
 
             <div className="flex flex-col items-start relative mb-4">
               <label className="mb-2 text-gray-700 font-medium">Phone Number <span className="text-red-500 font-semibold">*</span></label>
               <LuPhone className="absolute left-3 top-11 text-gray-700" />
-              <input type="text" placeholder="+1 (555) 123-4567" className="p-2 pl-9 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} placeholder="+1 (555) 123-4567" className="p-2 pl-9 mb-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
             </div>
 
             {/* Account Setup */}
@@ -128,12 +178,12 @@ export default function RegisterCompany() {
             <div className="flex flex-col lg:flex-row gap-4 mb-4 w-full">
               <div className="flex flex-col items-start w-full">
                 <label className="mb-2 text-gray-700 font-medium">Password <span className="text-red-500 font-semibold">*</span></label>
-                <input type="password" className="p-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="password" name="password" value={formData.password} onChange={handleChange} className="p-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
 
               <div className="flex flex-col items-start w-full">
                 <label className="mb-2 text-gray-700 font-medium">Confirm Password <span className="text-red-500 font-semibold">*</span></label>
-                <input type="password" className="p-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} className="p-2 border border-gray-200 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500" />
               </div>
             </div>
 
@@ -172,7 +222,7 @@ export default function RegisterCompany() {
               <Link to="/signuppage" className="text-[#7F4DFF] font-semibold ml-1">Sign up</Link>
             </div>
           </div>
-        </div>
+        </form>
       </section>
       <Footer />
     </>

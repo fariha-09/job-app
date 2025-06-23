@@ -29,13 +29,19 @@ export default function Signin() {
                 body: JSON.stringify(credentials),
             });
             const data = await res.json();
-            if (res.ok) {
-                alert(data.message);
-                navigate("/");
-            } else {
-                alert(data.message || "Login failed");
-            }
-            console.log("signin data:", data);
+            // console.log("data of msg",data)
+           if (res.ok) {
+
+  alert("user login successfully");
+  console.log("msg is",data.message);
+  navigate("/");
+} else if (res.status === 401 || res.status === 404) {
+  alert(data.message); 
+} else {
+  alert("Something went wrong. Please try again.");
+}
+
+console.log("signin data:", data);
         } catch (error) {
             console.log("login error", error);
         }

@@ -26,6 +26,7 @@ export default function LoginPage() {
   const [salaryRange, setSalaryRange] = useState("");
 
   const [formData, setFormData] = useState({
+     role: "user",
     firstName: "",
     lastName: "",
     email: "",
@@ -42,22 +43,22 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
       e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match with confirm password");
+      alert("Passwords do not match");
       return;
     }
     try {
-      const res =await fetch("https://job-portal-production-1bac.up.railway.app/api/user/signup", {
+      const res =await fetch("https://job-portal-production-1bac.up.railway.app/api/signup", {
         method: "POST",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-        body: JSON.stringify({...formData} ),
+        body: JSON.stringify({...formData, role: "user",} ),
       });
       const data = await res.json();
       console.log("the signup data is",data)
 
-      if (res.ok) {
-        alert(data.message);
+      if (res.ok && data.message.toLowerCase().includes('success')) {
+  alert(data.message);
          setFormData({
           firstName: "",
           lastName: "",
@@ -70,7 +71,7 @@ export default function LoginPage() {
           keySkills: "",
         });
       } else {
-        alert("signup failed");
+        alert(data.message || 'Signup failed');
       }
     } catch (error) {
       alert("Network error: " + error);
